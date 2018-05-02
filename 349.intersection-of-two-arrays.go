@@ -27,18 +27,15 @@
 
 func intersection(nums1 []int, nums2 []int) []int {
 	result := []int{}
-	mapN1, mapN2 := make(map[int]bool), make(map[int]bool)
+	mapN := make(map[int]int)
 	for _, item := range nums1 {
-		mapN1[item] = true
+		mapN[item] = 1
 	}
 	for _, item := range nums2 {
-		mapN2[item] = true
-	}
-	for num := range mapN1 {
-		if mapN2[num] == true {
-			result = append(result, num)
+		if mapN[item] == 1 {
+			result = append(result, item)
+			mapN[item] += 1
 		}
 	}
-
 	return result
 }
