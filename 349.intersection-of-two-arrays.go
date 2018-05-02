@@ -34,18 +34,11 @@ func intersection(nums1 []int, nums2 []int) []int {
 	for _, item := range nums2 {
 		mapN2[item] = true
 	}
-	if len(mapN1) < len(mapN2) {
-		for num := range mapN1 {
-			if mapN2[num] == true {
-				result = append(result, num)
-			}
-		}
-	} else {
-		for num := range mapN2 {
-			if mapN1[num] == true {
-				result = append(result, num)
-			}
+	for num := range mapN1 {
+		if mapN2[num] == true {
+			result = append(result, num)
 		}
 	}
+
 	return result
 }
