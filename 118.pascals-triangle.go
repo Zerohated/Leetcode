@@ -40,18 +40,11 @@ func generate(numRows int) [][]int {
 	result := [][]int{}
 	for i := 1; i <= numRows; i++ {
 		temp := make([]int, i)
-		switch i {
-		case 1:
-			temp = []int{1}
-		case 2:
-			temp = []int{1, 1}
-		default:
-			for num := range temp {
-				if num == 0 || num == len(temp)-1 {
-					temp[num] = 1
-				} else {
-					temp[num] = result[len(result)-1][num-1] + result[len(result)-1][num]
-				}
+		for num := range temp {
+			if num == 0 || num == len(temp)-1 {
+				temp[num] = 1
+			} else {
+				temp[num] = result[len(result)-1][num-1] + result[len(result)-1][num]
 			}
 		}
 		result = append(result, temp)
