@@ -47,16 +47,15 @@
 // package main
 
 func isOneBitCharacter(bits []int) bool {
-	for i := 0; i <= len(bits)-1; i++ {
+	i := 0
+	for i <= len(bits)-1 {
 		if bits[i] == 0 {
-		} else if bits[i] == 1 {
-			if i+1 == len(bits)-1 {
-				return false
-			} else {
-				i++
-			}
+			i++
 		} else {
-			panic("wrong value")
+			if i == len(bits)-2 {
+				return false
+			}
+			i += 2
 		}
 	}
 	return true
