@@ -50,10 +50,10 @@ func isOneBitCharacter(bits []int) bool {
 	for i := 0; i <= len(bits)-1; i++ {
 		if bits[i] == 0 {
 		} else if bits[i] == 1 {
-			if i+1 <= len(bits)-2 {
-				i++
-			} else if i+1 == len(bits)-1 {
+			if i+1 == len(bits)-1 {
 				return false
+			} else {
+				i++
 			}
 		} else {
 			panic("wrong value")
